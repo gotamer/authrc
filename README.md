@@ -1,16 +1,17 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GoDoc](https://godoc.org/git.hansaray.pw/go/authrc?status.svg)](https://godoc.org/git.hansaray.pw/go/authrc)
 
-# authrc - Welcome to the authentication runcom library and command
+# authrc - auth runcom
+### Welcome to the friendly authentication runcom library and command
 
 
-# authrc - The friendly authentication runcom command
+# authrc - runcom command
 
 `authrc` is a command line tool to read .authrc files.
 
 See 'bin' folder
 
-# .authrc - The friendly authentication runcom file
+# .authrc - runcom file
 
 The .autrc file contains login and initialization information used for auto login. It generally resides in the user’s config directory, but a location outside of the config directory can be set.
 
