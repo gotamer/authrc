@@ -14,35 +14,44 @@ import (
 const help = `
 authrc - The friendly authentication runcom
 
-Usage:
-	authrc [OPTIONS] [alias, service]
+SYNOPSIS
+	authrc [OPTIONS]
 
 DESCRIPTION
 authrc is a command line tool to read .authrc files.
 The .authrc file contains login and initialization information used for auto login.
 
-The following options are available:
+OPTIONS
 
--name  Service or Alias
+	-name  Service or Alias
 
--path  '~/.config/authrc'
-       Path to the '.authrc file'
+	-path  '~/.config/authrc'
+	       Path to the '.authrc file'
 
--env   Set env variables.
-       AUTHRC_SERVIVE, AUTHRC_USERNAME, AUTHRC_PASSWORD, AUTHRC_COMMAND
+	-env [bool]
+	       Will set env variables.
+	       AUTHRC_SERVIVE, AUTHRC_USERNAME, AUTHRC_PASSWORD, AUTHRC_COMMAND
 
--h or --help
-       Print this help and exit.
+	-h or --help [bool]
+	       Report usage information and exit.
 
--v or --version
-       Print version and exit.
+	-v or --version [bool]
+	       Print version and exit.
 
--t     Print template authrc line and exit
+	-t [bool]
+	       Print template authrc line and exit
 
--d     Print verbose information about the process.
+	--verbose [bool]
+	       Alias for --debug=files
 
-More info at: https://git.hansaray.pw/go/authrc
+	-d [bool]
+	       Print verbose information about the process.
 
+REPORTING BUGS
+	https://git.hansaray.pw/go/authrc
+
+COPYRIGHT
+	MIT License © 2023 TaMeR
 `
 
 var (
