@@ -1,4 +1,4 @@
-// authrc - The friendly authentication runcom library
+// authrc - The friendly authentication runcom library.
 // The .authrc file contains login and initialization information used for auto login.
 package authrc
 
@@ -88,8 +88,7 @@ func get(name string) (item *authrcLine) {
 			return
 		}
 	}
-	item = new(authrcLine)
-	return
+	return nil
 }
 
 func load() (data []byte, err error){

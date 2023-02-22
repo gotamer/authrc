@@ -18,19 +18,19 @@ func init() {
 }
 
 //VerModTime is a UTC Unix time stamp
-const VerModTime = 1677070202
+const VerModTime = 1677074015
 
 //VerModDate is a UTC Date time stamp
-const VerModDate = "2023-02-22T12:50:02Z"
+const VerModDate = "2023-02-22T13:53:35Z"
 
 //VerLong is the full version from Git command output
-const VerLong = "v0.0.1-0-g98e153a"
+const VerLong = "v0.0.4-0-gf9fa1e3-dirty"
 
 //VerDirty means app was build with a git dir that contained modifications which had not been committed.
-const VerDirty = false
+const VerDirty = true
 
 //VerGit is the 7 hexadecimal digits version from Git.
-const VerGit = "g98e153a"
+const VerGit = "gf9fa1e3"
 
 //VerTag is the Tag version from Git.
-const VerTag = "v0.0.1"
+const VerTag = "v0.0.4"

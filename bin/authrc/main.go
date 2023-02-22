@@ -50,7 +50,7 @@ var (
 	name = flag.String("name", "", "name of Service or Alias")
 	env = flag.Bool("env", false, "set env variables")
 	all = flag.Bool("all", false, "print all")
-	debug = flag.Bool("d", false, "print all")
+	debug = flag.Bool("d", false, "print debug info")
 	template = flag.Bool("t", false, "print template line and exit")
 )
 
@@ -62,6 +62,12 @@ func init() {
 		switch os.Args[1] {
 		case "-h", "--help", "help":
 			print(help)
+			os.Exit(0)
+		case "--version", "version":
+			fmt.Printf("Version: %s Date: %s\n", VerTag, VerModDate)
+			os.Exit(0)
+		case "-v":
+			print(VerTag)
 			os.Exit(0)
 		}
 	}
