@@ -21,7 +21,7 @@ The following options are available:
        Path to the .authrc file
 
 -env   Set env variables.
-       AUTHRC_SERVIVE, AUTHRC_USERNAME, AUTHRC_PASSWORD
+       AUTHRC_SERVIVE, AUTHRC_USERNAME, AUTHRC_PASSWORD, AUTHRC_COMMAND
 
 -h or --help
        Print this help and exit.

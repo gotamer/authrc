@@ -36,6 +36,9 @@ The .autrc file contains login and initialization information used for auto logi
 - PASSWORD<br>
     Supply a password. If this token is present, the auto-login process will supply the specified string if the service or remote server requires a password as part of the login process.
 
+- COMMAND<br>
+    Command to execute on remote server.
+s
 ### Example
 .authrc single line example:
 ```bash

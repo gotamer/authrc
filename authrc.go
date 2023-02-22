@@ -19,6 +19,7 @@ type authrcLine struct {
 	service    string
 	username    string
 	password string
+	command string
 }
 
 func SetFilePath(path string) (err error) {
@@ -39,13 +40,13 @@ func SetFilePath(path string) (err error) {
 	return
 }
 
-// Returns service, username and password
-func GetAll(name string) (string, string, string) {
+// Returns service, username, password and command
+func GetAll(name string) (string, string, string, string) {
 	authrc := get(name)
 	if authrc != nil {
-		return authrc.service, authrc.username, authrc.password
+		return authrc.service, authrc.username, authrc.password, authrc.command
 	}
-	return "", "", ""
+	return "", "", "", ""
 }
 
 // Returns both username and password
@@ -87,6 +88,7 @@ func get(name string) (item *authrcLine) {
 			return
 		}
 	}
+	item = new(authrcLine)
 	return
 }
 
@@ -129,6 +131,8 @@ func parse(data string) () {
 					authrc.username = field[i+1]
 				case "PASSWORD:":
 					authrc.password = field[i+1]
+				case "COMMAND:":
+					authrc.command = field[i+1]
 				}
 			}
 		}

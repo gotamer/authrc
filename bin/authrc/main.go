@@ -27,7 +27,7 @@ The following options are available:
        Path to the '.authrc file'
 
 -env   Set env variables.
-       AUTHRC_SERVIVE, AUTHRC_USERNAME, AUTHRC_PASSWORD
+       AUTHRC_SERVIVE, AUTHRC_USERNAME, AUTHRC_PASSWORD, AUTHRC_COMMAND
 
 -h or --help
        Print this help and exit.
@@ -61,9 +61,6 @@ func init() {
 		case "-h", "--help", "help":
 			print(help)
 			os.Exit(0)
-		case "-v", "--version", "version":
-			print("not implemented, comming soon")
-			os.Exit(0)
 		}
 	}
 	flag.Parse()
@@ -77,7 +74,7 @@ func main() {
 		if *name != "" {
 			a = *name
 		}
-		fmt.Printf("ALIAS: %s, SERVICE: , USERNAME: , PASSWORD: ", a)
+		fmt.Printf("ALIAS: %s, SERVICE: , USERNAME: , PASSWORD: , COMMAND: ", a)
 		os.Exit(0)
 	}
 
@@ -92,18 +89,19 @@ func main() {
 		os.Exit(1)
 	}
 
-	s, u, p := authrc.GetAll(*name)
+	s, u, p, c := authrc.GetAll(*name)
 	if *env {
  		os.Setenv("AUTHRC_SERVIVE", s)
 		os.Setenv("AUTHRC_USERNAME", u)
 		os.Setenv("AUTHRC_PASSWORD", p)
+		os.Setenv("AUTHRC_COMMAND", c)
 	} else if *all {
-		fmt.Printf("%s %s %s\n", s, u, p)
+		fmt.Printf("%s %s %s %s\n", s, u, p, c)
 	}else{
 		fmt.Printf("%s\n", p)
 	}
 
 	if *debug {
-		fmt.Printf("ALIAS: %s, SERVICE: %s, USERNAME: %s, PASSWORD: %s", *name, s, u, p)
+		fmt.Printf("ALIAS: %s, SERVICE: %s, USERNAME: %s, PASSWORD: %s, COMMAND: %s", *name, s, u, p, c)
 	}
 }
