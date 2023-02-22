@@ -1,17 +1,17 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GoDoc](https://godoc.org/git.hansaray.pw/go/authrc?status.svg)](https://godoc.org/git.hansaray.pw/go/authrc)
 
-# authrc - auth runcom
+# authrc
 ### Welcome to the friendly authentication runcom library and command
 
 
-# authrc - runcom command
+## authrc - runcom command
 
 `authrc` is a command line tool to read .authrc files.
 
-See 'bin' folder
+See [bin folder](https://git.hansaray.pw/go/authrc/src/branch/master/bin/authrc)
 
-# .authrc - runcom file
+## .authrc - runcom file
 
 The .autrc file contains login and initialization information used for auto login. It generally resides in the user’s config directory, but a location outside of the config directory can be set.
 
@@ -27,8 +27,9 @@ The .autrc file contains login and initialization information used for auto logi
 - PASSWORD<br>
     Supply a password. If this token is present, the auto-login process will supply the specified string if the service or remote server requires a password as part of the login process.
 
+### Example
 .authrc single line example:
 ```bash
-ALIAS: blog, SERVICE: pasts.example.net, USERNAME: bloguser@example.net, PASSWORD: 12345abcd
+ALIAS: blog, SERVICE: posts.example.net, USERNAME: bloguser@example.net, PASSWORD: 12345abcd
 ```
 
