@@ -1,4 +1,6 @@
-// authrc project main.go
+// authrc - The friendly authentication runcom command
+// authrc is a command line tool to read .authrc files.
+// The .authrc file contains login and initialization information used for auto login.
 package main
 
 import (

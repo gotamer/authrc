@@ -1,5 +1,5 @@
-// authrc project
-// Default file path '~/.config/authrc' from 'os.UserConfigDir()'
+// authrc - The friendly authentication runcom library
+// The .authrc file contains login and initialization information used for auto login.
 package authrc
 
 import (

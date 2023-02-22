@@ -38,7 +38,7 @@ The .autrc file contains login and initialization information used for auto logi
 
 - COMMAND<br>
     Command to execute on remote server.
-s
+
 ### Example
 .authrc single line example:
 ```bash
