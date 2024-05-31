@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+
+# Tag first -> git tag -a v0.0.10 -m "my tag 10"
+
 set -e
 
 cd $( dirname -- "$0"; );
