@@ -1,3 +1,3 @@
-module git.hansaray.pw/go/authrc
+module github.com/gotamer/authrc
 
 go 1.20

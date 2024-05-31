@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 
-	"git.hansaray.pw/go/authrc"
+	"github.com/gotamer/authrc"
 )
 
 func main() {
