@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![GoDoc](https://godoc.org/git.hansaray.pw/go/authrc/bin/authrc?status.svg)](https://godoc.org/git.hansaray.pw/go/authrc/bin/authrc)
+[![GoDoc](https://godoc.org/github.com/gotamer/authrc/bin/authrc?status.svg)](https://godoc.org/github.com/gotamer/authrc/bin/authrc)
 
 ## authrc - The friendly authentication runcom
 
@@ -34,14 +34,9 @@ OPTIONS
 	       Print template authrc line and exit
 
 	--verbose [bool]
-	       Alias for --debug=files
+	       Alias for --debug
 
-	-d [bool]
+	-d or --debug [bool]
 	       Print verbose information about the process.
 
-REPORTING BUGS
-	https://git.hansaray.pw/go/authrc
-
-COPYRIGHT
-	MIT License © 2023 TaMeR
 ```

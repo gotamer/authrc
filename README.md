@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![GoDoc](https://godoc.org/git.hansaray.pw/go/authrc?status.svg)](https://godoc.org/git.hansaray.pw/go/authrc)
+[![GoDoc](https://godoc.org/github.com/gotamer/authrc?status.svg)](https://godoc.org/github.com/gotamer/authrc)
 
 ```
                               .   oooo
@@ -11,14 +11,16 @@
 Y8P `Y888""8o  `V88V"V8P'   "888" o888o o888o d888b    `Y8bod8P'
 
 ```
-### Welcome to the friendly authentication runcom library and command
+### The friendly authentication runcom library and command
 
 
 ## authrc - runcom command
 
 `authrc` is a command line tool to read .authrc files.
 
-See [bin folder](https://git.hansaray.pw/go/authrc/src/branch/master/bin/authrc)
+See bin folder.
+
+______
 
 ## .authrc - runcom file
 
