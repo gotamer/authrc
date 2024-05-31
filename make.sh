@@ -16,6 +16,7 @@ GOBIN=$(go env GOBIN)
 
 clear
 echo "Hello ${USER}"
+
 APPNAME='authrc'
 readonly APPNAME
 
@@ -35,6 +36,7 @@ readonly BUILD_TIME
 COMMIT_TIME="${SOURCE_DATE_EPOCH:-$( git log -1 --pretty=%ct )}"
 readonly COMMIT_TIME
 
+echo "Current folder: ${SCRIPTDIR}"
 echo "VERSION:" $VERSION
 
 # echo "FLAGS: " ${LDFLAGS[*]}
@@ -55,13 +57,15 @@ sleep 2
 
 APPEXE="${SCRIPTDIR}/bin/${APPNAME}/${APPNAME}"
 
+mv "${APPEXE}" "${SCRIPTDIR}"
+
 install(){
 	if [[ $USER == "root" ]]
 	then
-		mv "${APPEXE}" "/sbin/${APPNAME}"
+		mv "${SCRIPTDIR}/${APPNAME}" "/sbin/${APPNAME}"
 	elif [[ -d $GOBIN ]]
 	then
-		mv "${APPEXE}" "${GOBIN}/${APPNAME}"
+		mv "${SCRIPTDIR}/${APPNAME}" "${GOBIN}/${APPNAME}"
 	fi
 	echo "[INF] installed at:"
 	which ${APPNAME}
