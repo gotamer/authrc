@@ -91,6 +91,18 @@ func get(name string) (item *authrcLine) {
 	return nil
 }
 
+func List() string {
+	var sb strings.Builder
+	sb.WriteString("Alias\tService\n")
+	for _,item := range database {
+		sb.WriteString(item.alias)
+		sb.WriteString("\t")
+		sb.WriteString(item.service)
+		sb.WriteString("\n")
+	}
+	return sb.String()
+}
+
 func load() (data []byte, err error){
 
 	if data, err = ioutil.ReadFile(FILE_AUTHRC); err != nil {

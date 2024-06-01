@@ -19,14 +19,14 @@ func main() {
 		os.Exit(0)
 	}
 
-	if arg_Name == "" {
-		print(help)
-		os.Exit(1)
-	}
-
 	if err = authrc.SetFilePath(arg_Path); err != nil {
 		fmt.Println(err.Error())
 		os.Exit(1)
+	}
+
+	if arg_List {
+		print(authrc.List())
+		os.Exit(0)
 	}
 
 	s, u, p, c := authrc.GetAll(arg_Name)

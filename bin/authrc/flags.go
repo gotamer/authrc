@@ -8,9 +8,9 @@ import (
 )
 
 var (
-	arg_Name, arg_Path    string
-	arg_Env, arg_Template bool
-	arg_Debug, arg_All    bool
+	arg_Name, arg_Path           string
+	arg_Env, arg_Template        bool
+	arg_Debug, arg_All, arg_List bool
 )
 
 func flags() {
@@ -24,10 +24,7 @@ func flags() {
 			case "-h", "--help":
 				print(help)
 				os.Exit(0)
-			case "--version":
-				fmt.Printf("%s\n", build.Info())
-				os.Exit(0)
-			case "-v":
+			case "-v", "--version":
 				fmt.Printf("%s\n", build.Info())
 				os.Exit(0)
 			case "-d", "--debug", "--verbose":
@@ -38,9 +35,19 @@ func flags() {
 				arg_Template = true
 			case "-a", "--all":
 				arg_All = true
+			case "-l", "--list":
+				arg_List = true
 			case "-n", "--name":
+				if len(os.Args) < 3 {
+					print(help)
+					os.Exit(1)
+				}
 				arg_Name = os.Args[no+1]
 			case "-p", "--path":
+				if len(os.Args) < 3 {
+					print(help)
+					os.Exit(1)
+				}
 				arg_Path = os.Args[no+1]
 			}
 		}
@@ -61,6 +68,9 @@ OPTIONS
 
 	-n or --name
            Service or Alias
+
+	-l or --list
+           List all Aliases
 
 	-p or --path  '~/.config/authrc'
 	       Path to the '.authrc file'
