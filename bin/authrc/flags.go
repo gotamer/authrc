@@ -3,12 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
-)
 
-var (
-	VerTag  = "dev"
-	VerHash = "hash"
-	VerDate = "2023"
+	"github.com/gotamer/authrc/bin/authrc/build"
 )
 
 var (
@@ -29,10 +25,10 @@ func flags() {
 				print(help)
 				os.Exit(0)
 			case "--version":
-				fmt.Printf("Version: %s Hash: %s Date: %s\n", VerTag, VerHash, VerDate)
+				fmt.Printf("%s\n", build.Info())
 				os.Exit(0)
 			case "-v":
-				print(VerTag)
+				fmt.Printf("%s\n", build.Info())
 				os.Exit(0)
 			case "-d", "--debug", "--verbose":
 				arg_Debug = true

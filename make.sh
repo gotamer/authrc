@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 
-
 # Tag first -> git tag -a v0.0.10 -m "my tag 10"
 
 set -e
 
+APPNAME='authrc'
+PACKAGE="github.com/gotamer/authrc/bin/authrc"
+
+
 cd $( dirname -- "$0"; );
-SCRIPTDIR=$PWD;
+ROOTDIR=$PWD;
 
 # We don't delete files, we back them up to the trash bin
 mkdir -p '/tmp/trash'
@@ -20,26 +23,25 @@ GOBIN=$(go env GOBIN)
 clear
 echo "Hello ${USER}"
 
-APPNAME='authrc'
-readonly APPNAME
-
-PACKAGE="github.com/gotamer/authrc/bin/authrc"
-readonly PACKAGE
-
 VERSION="$(git describe --tags --always --abbrev=0 --match='v[0-9]*.[0-9]*.[0-9]*' 2> /dev/null | sed 's/^.//')"
-readonly VERSION
 
 COMMIT_HASH="$(git rev-parse --short HEAD)"
-readonly COMMIT_HASH
 
 BUILD_TIME=$(date '+%Y-%m-%dT%H:%M:%S')
-readonly BUILD_TIME
 
 # Set date and time of the latest commit unless already set.
 COMMIT_TIME="${SOURCE_DATE_EPOCH:-$( git log -1 --pretty=%ct )}"
+
+BUILD_USER=$(id -u -n)
+
+readonly COMMIT_HASH
+readonly APPNAME
+readonly PACKAGE
+readonly VERSION
+readonly BUILD_TIME
 readonly COMMIT_TIME
 
-echo "Current folder: ${SCRIPTDIR}"
+echo "Current folder: ${ROOTDIR}"
 echo "VERSION:" $VERSION
 
 # echo "FLAGS: " ${LDFLAGS[*]}
@@ -49,30 +51,41 @@ echo "[INF] setting build env"
 go env -w GO111MODULE=off CGO_ENABLED=0
 
 echo "[INF] building ${APPNAME}"
-cd "${SCRIPTDIR}/bin/${APPNAME}"
+cd "${ROOTDIR}/bin/${APPNAME}"
+
 go fmt .
-sleep 0.5
+wait
+
+LDFLAGS=("-s -w "
+  "-X '${PACKAGE}/build.AppName=${APPNAME}'"
+  "-X '${PACKAGE}/build.Version=${VERSION}'"
+  "-X '${PACKAGE}/build.CommitHash=${COMMIT_HASH}'"
+  "-X '${PACKAGE}/build.BuildTime=${BUILD_TIME}'"
+  "-X '${PACKAGE}/build.UserName=${BUILD_USER}'"
+)
+
 go build -ldflags="${LDFLAGS[*]}"
 
-cd "${SCRIPTDIR}"
+wait
 
-sleep 2
-
-APPEXE="${SCRIPTDIR}/bin/${APPNAME}/${APPNAME}"
-
-mv "${APPEXE}" "${SCRIPTDIR}"
-
-install(){
 	if [[ $USER == "root" ]]
 	then
-		mv "${SCRIPTDIR}/${APPNAME}" "/sbin/${APPNAME}"
+		mv "${APPNAME}" "/sbin/"
+		echo "[INF] installed at:"
+		which ${APPNAME}
 	elif [[ -d $GOBIN ]]
 	then
-		mv "${SCRIPTDIR}/${APPNAME}" "${GOBIN}/${APPNAME}"
+		mv "${APPNAME}" "${GOBIN}/"
+		echo "[INF] installed at:"
+		which ${APPNAME}
+	else
+		echo "[ERR] could not move to bin"
 	fi
-	echo "[INF] installed at:"
-	which ${APPNAME}
-}
+
+# executes the function $1 $2 $3 $4 $5 are the arguments
+$@
+
+wait
 
 echo "[INF] setting Go env back to:"
 echo "[INF] GOARCH=${GOARCH} GOOS=${GOOS} GO111MODULE=${GOMOD}"
@@ -81,5 +94,3 @@ go env -w GO111MODULE=${GOMOD}
 
 echo "[INF] all done"
 
-# executes the function $1 $2 $3 $4 $5 are the arguments
-$@
