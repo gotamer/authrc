@@ -27,19 +27,19 @@ ______
 
 The .autrc file contains login and initialization information used for auto login. It generally resides in the user’s config directory, but a location outside of the config directory can be set.
 
-- ALIAS:
+- ALIAS<br>
     Alias of a service, or remote host
 
-- SERVICE:
+- SERVICE<br>
     Identify a service or remote host name. The auto login process searches the .authrc file for a SERVICE token that matches the service or remote machine specified on the command line argument. Once a match is made, the subsequent .authrc tokens are processed, stopping when the end of line is reached
 
-- USERNAME:
+- USERNAME<br>
     Identify a user of the service, or on the remote machine.
 
-- PASSWORD:
+- PASSWORD<br>
     Supply a password. If this token is present, the auto-login process will supply the specified string if the service or remote server requires a password as part of the login process.
 
-- COMMAND:
+- COMMAND<br>
     Command to execute on remote server.
 
 ### Example
