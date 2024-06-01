@@ -1,19 +1,9 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GoDoc](https://godoc.org/github.com/gotamer/authrc?status.svg)](https://godoc.org/github.com/gotamer/authrc)
 
-```
-                              .   oooo
-                            .o8   `888
-     .oooo.   oooo  oooo  .o888oo  888 .oo.   oooo d8b  .ooooo.
-    `P  )88b  `888  `888    888    888P"Y88b  `888""8P d88' `"Y8
-     .oP"888   888   888    888    888   888   888     888
-.o. d8(  888   888   888    888 .  888   888   888     888   .o8
-Y8P `Y888""8o  `V88V"V8P'   "888" o888o o888o d888b    `Y8bod8P'
+# The friendly authentication runcom, library, and command
 
-```
-### The friendly authentication runcom library and command
-
-Here you can find the authrc specs, a go library, and a cli run command.
+Here you can find the authrc specs, a go library, and a cli command.
 
 ## authrc - runcom command
 
