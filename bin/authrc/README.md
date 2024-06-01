@@ -15,12 +15,16 @@ The .authrc file contains login and initialization information used for auto log
 
 OPTIONS
 
-	-name  Service or Alias
+	-n or --name
+           Service or Alias
 
-	-path  '~/.config/authrc'
+	-l or --list
+           List all Aliases
+
+	-p or --path  '~/.config/authrc'
 	       Path to the '.authrc file'
 
-	-env [bool]
+	-e or --environment [bool]
 	       Will set env variables.
 	       AUTHRC_SERVIVE, AUTHRC_USERNAME, AUTHRC_PASSWORD, AUTHRC_COMMAND
 
@@ -30,7 +34,7 @@ OPTIONS
 	-v or --version [bool]
 	       Print version and exit.
 
-	-t [bool]
+	-t or --template [bool]
 	       Print template authrc line and exit
 
 	--verbose [bool]
